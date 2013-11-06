@@ -22,7 +22,7 @@ Requirements
 * `bash`
 * `curl`
 * `tar`
-* `mkisofs` (ncludes cdrtools in major distributions)
+* `mkisofs` (includes `cdrtools` in major distributions)
 
 Author
 ------
