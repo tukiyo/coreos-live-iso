@@ -7,7 +7,7 @@ set -e
 
 # Default configurations
 SYSLINUX_VERSION='6.02'
-COREOS_VERSION='110.0.0'
+COREOS_VERSION='147.0.1'
 BOOT_ENV='bios'
 SSH_PUBKEY_PATH=~/.ssh/id_rsa.pub
 
