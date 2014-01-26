@@ -7,7 +7,7 @@ set -e
 
 # Default configurations
 SYSLINUX_VERSION='6.02'
-COREOS_VERSION='147.0.1'
+COREOS_VERSION='dev-channel'
 BOOT_ENV='bios'
 SSH_PUBKEY_PATH=~/.ssh/id_rsa.pub
 
@@ -19,6 +19,7 @@ SYSLINUX_URL="${SYSLINUX_BASE_URL}/${SYSLINUX_BASENAME}.tar.gz"
 COREOS_BASE_URL="http://storage.core-os.net/coreos/amd64-generic"
 COREOS_KERN_BASENAME="coreos_production_pxe.vmlinuz"
 COREOS_INITRD_BASENAME="coreos_production_pxe_image.cpio.gz"
+COREOS_VER_URL="${COREOS_BASE_URL}/${COREOS_VERSION}/version.txt"
 COREOS_KERN_URL="${COREOS_BASE_URL}/${COREOS_VERSION}/${COREOS_KERN_BASENAME}"
 COREOS_INITRD_URL="${COREOS_BASE_URL}/${COREOS_VERSION}/${COREOS_INITRD_BASENAME}"
 
@@ -37,6 +38,10 @@ cd $workdir
 mkdir -p iso/coreos
 mkdir -p iso/syslinux
 mkdir -p iso/isolinux
+
+echo "-----> CoreOS version "
+curl -o version.txt ${COREOS_VER_URL}
+cat version.txt
 
 echo "-----> Download CoreOS's kernel"
 curl -o iso/coreos/vmlinuz $COREOS_KERN_URL
