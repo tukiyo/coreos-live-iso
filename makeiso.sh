@@ -16,7 +16,7 @@ STARTUP_COMMAND_3=""
 
 # environment
 BINDIR=`cd $(dirname $0) && pwd`
-COREOS_VERSION=${COREOS_VERSION:="dev-channel"}
+COREOS_VERSION=${COREOS_VERSION:="master"}
 WORKDIR=$BINDIR/${COREOS_VERSION}
 CURL=${CURL:="curl -s"} 
 SYSLINUX_BASE_URL="ftp://www.kernel.org/pub/linux/utils/boot/syslinux/"
@@ -183,4 +183,6 @@ make_iso
 #cleanup
  
 echo_job "[Finish]"
-echo_job "iso boot then \`ssh core@<ip>\`"
+echo "iso boot then"
+echo " 1. ssh core@<ip>"
+echo " 2. read http://qiita.com/tukiyo3/items/a0f54f25a986a6e58d83"
